@@ -1,6 +1,7 @@
 import React from 'react';
 import P1 from '../ProductCard/ProductCard';
 import plant from '../Habenaria_radiata.jpg';
+import './ProductListStyle.css';
 import axios from 'axios';
 
 class ProductListComponent extends React.Component{
@@ -38,7 +39,8 @@ class ProductListComponent extends React.Component{
             products: productsArray
         }
     }
-    //goProducts = () => this.props.router.push("products");
+    goProducts = () => this.props.router.push("products");
+    goAdmin = () => this.props.router.push("admin/products/new");
   
     componentWillMount(){
         //1.skaitysit is serverio su axios.get
@@ -56,6 +58,11 @@ class ProductListComponent extends React.Component{
         console.log(this.props);
         return(
             <div>
+                <h1 className="header" >Welcome to our shop!</h1>
+                <p><button onClick={this.goAdmin}
+                    className="btn btn-primary"
+                    role="button">
+                    Admin</button></p> 
                 <div className="container">
                     <div className="row1">
                         <div className="col-sm-4 col-md-4">
@@ -76,10 +83,10 @@ class ProductListComponent extends React.Component{
                         </div>
                     </div>
                 </div>
-                {/* <p><button onClick={this.goProducts}
+                 <p><button onClick={this.goProducts}
                     className="btn btn-primary"
                     role="button">
-                    Go to products</button></p> */}
+                    Go to products</button></p> 
             </div>
         );
     }

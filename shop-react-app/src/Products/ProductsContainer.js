@@ -13,26 +13,34 @@ class ProductsContainer extends Component{
 
     componentWillMount(){
         axios
-            .get("http://localhost:8081/rest/product")
-            .then((responce) => {
-                console.log(responce);
-                this.setState({products: responce.data});
+            .get("http://localhost:8081/rest/products")
+            .then((response) => {
+                console.log(response);
+                this.setState({products: response.data});
             })
             .catch((error) => {
                 console.log(error);
             });
     }
-
+    goMain = () => this.props.router.push("/");
+    
     render (){
-        return <ManyProductsComponent allProducts={this.state.products}/>
+        return <div>
+        At route: {this.props.router.getCurrentLocation().pathname}
+        <button onClick={this.goMain}>Back to Main Page</button>
+       {/*  <pre>
+            {JSON.stringify(props, null, 2)}
+        </pre> */}
+        <ManyProductsComponent allProducts={this.state.products}/>
+      </div>
     }
 }
-/* var BackToMainNavigation =(props)=>{
-    var goApp = () => props.router.push("/");
-    return (
+ //var BackToMainNavigation =(props)=>{
+    /*var */
+    /*return (
       <div>
           At route: {props.router.getCurrentLocation().pathname}
-          <button onClick={goApp}>Back to Main Page</button>
+          <button onClick={goMain}>Back to Main Page</button>
           <pre>
               {JSON.stringify(props, null, 2)}
           </pre>

@@ -7,6 +7,8 @@ var SingleProductComponent = (props)=>{
                 Price: {product.price} $<br/>
                 Quantity: {product.quantity}<br/>
                 Description: {product.description}<br/>
+                <p><a href="#" className="btn btn-primary" 
+                        role="button">Buy</a></p>
     </span>
 
 }

@@ -15,13 +15,26 @@ class ProductAdministrationComponent extends React.Component{
     }
 
     componentWillMount(){
-        axios.get('localhost:3000/#/admin/products/new')
-        .then((responce)=>{
-            this.setState({products: responce.data})
+        axios.get('http://localhost:8081/admin/products/new')
+        .then((response)=>{
+            this.setState({products: response.data})
         })
         .catch((error)=>{
             console.log(error);
         });
+    }
+
+    componentWillUpdate(){
+        axios.post('http://localhost:8081/rest/products', {
+            title: this.props.title, 
+            imageurl: this.props.imageurl,
+            price: this.props.price,
+            quantity: this.props.quantity,
+            description: this.props.description
+        })
+        .catch ((error)=>{
+            console.log(error);
+        })
     }
 
     handleSubmit = (event)=> {
@@ -49,9 +62,17 @@ class ProductAdministrationComponent extends React.Component{
         this.setState({imageurl: event.target.value});
     }
 
+    goMain = () => this.props.router.push("/");
+
     render(){
         return(
             <form onSubmit={this.handleSubmit}>
+            At route: {this.props.router.getCurrentLocation().pathname}
+                 <button onClick={this.goMain}>Back to Main Page</button>
+                {/*  <pre>
+                    {JSON.stringify(props, null, 2)}
+                </pre> */}<br/>
+                <br/>
                 <div className="form-group">
                     <label htmlFor="productTitle">Title: </label>
                     <input type="text" value={this.state.title} onChange={this.updateTitle}/>

@@ -38,7 +38,7 @@ var DemonstruotiNavigacija =(props)=>{
 
 var InitialApp=(props)=>{
   return <div>
-    <img src='/Habenaria_radiata.jpg' alt="Ner paveiksliuko" style={{width: 100, height: 100}}/>
+    <img src={props.imageurl} alt="Ner paveiksliuko" style={{width: 100, height: 100}}/>
   {props.children}</div>
 }
 

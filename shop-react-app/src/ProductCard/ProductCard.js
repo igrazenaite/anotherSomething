@@ -3,9 +3,9 @@ import plant from '../Habenaria_radiata.jpg';
 //import PropTypes from 'prop-types';
 
 class ProductCardComponent extends React.Component{
-  /*constructor (props){
+  /* constructor (props){
     super(props);
-  }*/
+  } */
     render(){
       return(
         <div className="row">

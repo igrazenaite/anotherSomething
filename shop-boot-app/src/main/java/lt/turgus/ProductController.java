@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/rest/product")
+@RequestMapping(value = "/rest/products")
 public class ProductController {
 
 	@Autowired
